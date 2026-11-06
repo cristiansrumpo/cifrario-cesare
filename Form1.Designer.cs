@@ -38,6 +38,7 @@
             this.lbl_n4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_n5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.lbl_n1.AutoSize = true;
             this.lbl_n1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_n1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lbl_n1.Location = new System.Drawing.Point(171, 9);
+            this.lbl_n1.Location = new System.Drawing.Point(286, 9);
             this.lbl_n1.Name = "lbl_n1";
             this.lbl_n1.Size = new System.Drawing.Size(218, 27);
             this.lbl_n1.TabIndex = 0;
@@ -116,7 +117,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(25, 175);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 124);
+            this.pictureBox1.Size = new System.Drawing.Size(360, 191);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -131,11 +132,22 @@
             this.lbl_n5.TabIndex = 8;
             this.lbl_n5.Text = "Risultato";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(411, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(9, 286);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "|\r\n|\r\n|\r\n|\r\n|\r\n\r\n\r\n|\r\n|\r\n|\r\n|\r\n\r\n|\r\n|\r\n|\r\n|\r\n\r\n|\r\n|\r\n|\r\n|\r\n\r\n";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_n5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_n4);
@@ -145,6 +157,7 @@
             this.Controls.Add(this.txt_n1);
             this.Controls.Add(this.lbl_n2);
             this.Controls.Add(this.lbl_n1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -164,6 +177,7 @@
         private System.Windows.Forms.Label lbl_n4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_n5;
+        private System.Windows.Forms.Label label1;
     }
 }
 
