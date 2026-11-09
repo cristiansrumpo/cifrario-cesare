@@ -50,6 +50,35 @@ namespace cifrario_cesare
             lbl_n5.Text = new string(caratteri);
         }
 
+        private void btn_n2_Click(object sender, EventArgs e)
+        {
+            string testoCifrato = txt_n3.Text;
+            int chiave = 0;
+
+            // 2. Converte il testo in un array di caratteri per poterlo elaborare
+            char[] buffer = testoCifrato.ToCharArray();
+
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                char lettera = buffer[i];
+
+                // Gestione lettere maiuscole
+                if (char.IsUpper(lettera))
+                {
+                    // Il +26 serve a gestire correttamente il calcolo quando si va all'indietro
+                    lettera = (char)(((lettera - 'A' - chiave + 26) % 26) + 'A');
+                }
+                // Gestione lettere minuscole
+                else if (char.IsLower(lettera))
+                {
+                    lettera = (char)(((lettera - 'a' - chiave + 26) % 26) + 'a');
+                }
+
+                buffer[i] = lettera;
+            }
+            lbl_n11.Text = new string(buffer);
+        }
+
     }
-}   
+}       
 

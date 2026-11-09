@@ -232,6 +232,7 @@
             this.btn_n2.TabIndex = 17;
             this.btn_n2.Text = "DECIFRA";
             this.btn_n2.UseVisualStyleBackColor = true;
+            this.btn_n2.Click += new System.EventHandler(this.btn_n2_Click);
             // 
             // pictureBox2
             // 
