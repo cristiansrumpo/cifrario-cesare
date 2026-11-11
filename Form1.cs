@@ -52,33 +52,86 @@ namespace cifrario_cesare
 
         private void btn_n2_Click(object sender, EventArgs e)
         {
-            string testoCifrato = txt_n3.Text;
-            int chiave = 0;
+            int chiave;
+            string frase;
 
-            // 2. Converte il testo in un array di caratteri per poterlo elaborare
-            char[] buffer = testoCifrato.ToCharArray();
+            chiave = 0;
+            frase = txt_n3.Text;
 
-            for (int i = 0; i < buffer.Length; i++)
+            chiave = Convert.ToInt32(txt_n4.Text);
+
+            char[] caratteri = frase.ToCharArray();
+
+            for (int i = 0; i < caratteri.Length; i++)
             {
-                char lettera = buffer[i];
+                char lettera = caratteri[i];
 
-                // Gestione lettere maiuscole
                 if (char.IsUpper(lettera))
                 {
-                    // Il +26 serve a gestire correttamente il calcolo quando si va all'indietro
-                    lettera = (char)(((lettera - 'A' - chiave + 26) % 26) + 'A');
+                    lettera = (char)(((lettera - 'A' - chiave) % 26 + 26) % 26 + 'A');
                 }
-                // Gestione lettere minuscole
                 else if (char.IsLower(lettera))
                 {
-                    lettera = (char)(((lettera - 'a' - chiave + 26) % 26) + 'a');
+                    lettera = (char)(((lettera - 'a' - chiave) % 26 + 26) % 26 + 'a');
                 }
 
-                buffer[i] = lettera;
+                caratteri[i] = lettera;
             }
-            lbl_n11.Text = new string(buffer);
+
+            lbl_n11.Text = new string(caratteri);
         }
 
+        private void btn_n3_Click(object sender, EventArgs e)
+        {
+            string frase, chiaveStringa, risultato;
+
+            frase = txt_n5.Text;
+            chiaveStringa = txt_n6.Text;
+
+            if (string.IsNullOrEmpty(chiaveStringa))
+            {
+                chiaveStringa = "CHIAVE";
+            }
+
+            char[] caratteri = frase.ToCharArray();
+
+            for (int i = 0; i < caratteri.Length; i++)
+            {
+                char lettera = caratteri[i];
+
+                if (!char.IsLetter(lettera))
+                {
+                    continue;
+                }
+
+                // Trova la lettera corrispondente nella chiave (usando il modulo)
+                char letteraChiave = chiaveStringa[i % chiaveStringa.Length];
+
+                // Calcola lo spostamento basato sulla lettera della chiave (da 0 a 25)
+                int spostamento;
+                if (char.IsUpper(letteraChiave))
+                {
+                    spostamento = letteraChiave - 'A';
+                }
+                else
+                {
+                    spostamento = letteraChiave - 'a';
+                }
+
+                // Applica lo spostamento alla lettera del testo in chiaro
+                if (char.IsUpper(lettera))
+                {
+                    lettera = (char)(((lettera - 'A' + spostamento) % 26 + 26) % 25 + 'A');
+                }
+                else
+                {
+                    lettera = (char)(((lettera - 'a' + spostamento) % 26 + 26) % 25 + 'a');
+                }
+
+                caratteri[i] = lettera;
+            }
+            lbl_n20.Text = new string(caratteri);
+        }
     }
 }       
 
